@@ -188,6 +188,9 @@ USE_TZ = True
 AUTH_USER_MODEL = 'accounts.User'
 # 헤로쿠 배포 에러
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not os.path.isdir(STATIC_ROOT):
+    os.makedirs(STATIC_ROOT, mode=0o755)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
